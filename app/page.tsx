@@ -1,6 +1,7 @@
 import Header from "@/components/header/Header";
 import Hero from "@/components/hero/Hero";
 import Features from "@/components/features/Features";
+import Work from "@/components/work/Work";
 
 export default function Home() {
   return (
@@ -13,6 +14,9 @@ export default function Home() {
       </div>
       <div className="h-screen flex">
         <Features />
+      </div>
+      <div className="h-screen flex">
+        <Work />
       </div>
     </main>
   );
