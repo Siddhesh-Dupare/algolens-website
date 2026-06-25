@@ -1,5 +1,6 @@
 import { Download, Sparkles } from "lucide-react";
 import { GithubIcon } from "@/components/icons/GithubIcon";
+import { Screenshot } from "@/components/ui/Screenshot";
 import { site } from "@/lib/site";
 
 export default function Hero() {
@@ -56,87 +57,81 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Product mockup */}
-        <div className="mt-14">
-          <AppMock />
+        {/* Product shot — drop /public/screenshots/hero.png to replace the mock. */}
+        <div className="mx-auto mt-14 max-w-4xl">
+          <Screenshot
+            src="/screenshots/hero.png"
+            alt="AlgoLens visualizing bubble sort"
+            title="AlgoLens — bubble_sort.py"
+          >
+            <HeroMock />
+          </Screenshot>
         </div>
       </div>
     </section>
   );
 }
 
-// A stylized mock of the AlgoLens window (editor + visualizer) built in CSS.
-function AppMock() {
+// CSS fallback shown until a real hero screenshot is added.
+function HeroMock() {
   return (
-    <div className="mx-auto max-w-4xl overflow-hidden rounded-xl border border-white/10 bg-[#0d0e11] shadow-2xl shadow-black/50">
-      {/* title bar */}
-      <div className="flex items-center gap-2 border-b border-white/[0.06] bg-[#1b1d22] px-3 py-2">
-        <span className="size-2.5 rounded-full bg-[#ff5f57]" />
-        <span className="size-2.5 rounded-full bg-[#febc2e]" />
-        <span className="size-2.5 rounded-full bg-[#28c840]" />
-        <span className="ml-3 text-[11px] text-zinc-500">AlgoLens — bubble_sort.py</span>
+    <div className="grid h-full grid-cols-1 sm:grid-cols-2">
+      <div className="border-b border-white/[0.06] p-4 font-mono text-[12px] leading-6 sm:border-b-0 sm:border-r">
+        <Line n={1}>
+          <span className="text-violet-400">def</span>{" "}
+          <span className="text-sky-400">bubble_sort</span>
+          <span className="text-zinc-400">(arr):</span>
+        </Line>
+        <Line n={2} active>
+          {"  "}
+          <span className="text-violet-400">for</span> i{" "}
+          <span className="text-violet-400">in</span>{" "}
+          <span className="text-sky-400">range</span>
+          <span className="text-zinc-400">(len(arr)):</span>
+        </Line>
+        <Line n={3}>
+          {"    "}
+          <span className="text-violet-400">for</span> j{" "}
+          <span className="text-violet-400">in</span> ...
+        </Line>
+        <Line n={4}>
+          {"      "}
+          <span className="text-violet-400">if</span> arr[j]{" "}
+          <span className="text-zinc-400">&gt;</span> arr[j+
+          <span className="text-amber-400">1</span>]:
+        </Line>
+        <Line n={5}>
+          {"        "}arr[j], arr[j+<span className="text-amber-400">1</span>] = ...
+        </Line>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2">
-        {/* editor */}
-        <div className="border-b border-white/[0.06] p-4 font-mono text-[12px] leading-6 sm:border-b-0 sm:border-r">
-          <Line n={1}>
-            <span className="text-violet-400">def</span>{" "}
-            <span className="text-sky-400">bubble_sort</span>
-            <span className="text-zinc-400">(arr):</span>
-          </Line>
-          <Line n={2} active>
-            {"  "}
-            <span className="text-violet-400">for</span> i{" "}
-            <span className="text-violet-400">in</span>{" "}
-            <span className="text-sky-400">range</span>
-            <span className="text-zinc-400">(len(arr)):</span>
-          </Line>
-          <Line n={3}>
-            {"    "}
-            <span className="text-violet-400">for</span> j{" "}
-            <span className="text-violet-400">in</span> ...
-          </Line>
-          <Line n={4}>
-            {"      "}
-            <span className="text-violet-400">if</span> arr[j]{" "}
-            <span className="text-zinc-400">&gt;</span> arr[j+
-            <span className="text-amber-400">1</span>]:
-          </Line>
-          <Line n={5}>
-            {"        "}arr[j], arr[j+<span className="text-amber-400">1</span>] = ...
-          </Line>
-        </div>
-
-        {/* visualizer */}
-        <div className="relative bg-[#0a0a0c] p-5 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:18px_18px]">
-          <div className="flex h-full flex-col items-center justify-center gap-4">
-            <div className="flex items-end gap-1.5">
-              {[
-                { v: 5, c: "bg-zinc-700" },
-                { v: 2, c: "bg-rose-500" },
-                { v: 8, c: "bg-rose-500" },
-                { v: 1, c: "bg-zinc-700" },
-                { v: 9, c: "bg-zinc-700" },
-                { v: 3, c: "bg-sky-500" },
-              ].map((b, i) => (
-                <div
-                  key={i}
-                  className={`grid w-7 place-items-center rounded-md ${b.c} text-[11px] font-medium text-white`}
-                  style={{ height: `${28 + b.v * 7}px` }}
-                >
-                  {b.v}
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center gap-2 text-[10px] text-zinc-500">
-              <span className="flex items-center gap-1">
-                <span className="size-2 rounded-sm bg-rose-500" /> compare
-              </span>
-              <span className="flex items-center gap-1">
-                <span className="size-2 rounded-sm bg-sky-500" /> active
-              </span>
-            </div>
+      <div className="relative bg-[#0a0a0c] p-5 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:18px_18px]">
+        <div className="flex h-full flex-col items-center justify-center gap-4">
+          <div className="flex items-end gap-1.5">
+            {[
+              { v: 5, c: "bg-zinc-700" },
+              { v: 2, c: "bg-rose-500" },
+              { v: 8, c: "bg-rose-500" },
+              { v: 1, c: "bg-zinc-700" },
+              { v: 9, c: "bg-zinc-700" },
+              { v: 3, c: "bg-sky-500" },
+            ].map((b, i) => (
+              <div
+                key={i}
+                className={`grid w-7 place-items-center rounded-md ${b.c} text-[11px] font-medium text-white`}
+                style={{ height: `${28 + b.v * 7}px` }}
+              >
+                {b.v}
+              </div>
+            ))}
+          </div>
+          <div className="flex items-center gap-2 text-[10px] text-zinc-500">
+            <span className="flex items-center gap-1">
+              <span className="size-2 rounded-sm bg-rose-500" /> compare
+            </span>
+            <span className="flex items-center gap-1">
+              <span className="size-2 rounded-sm bg-sky-500" /> active
+            </span>
           </div>
         </div>
       </div>

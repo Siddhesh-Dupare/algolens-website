@@ -2,12 +2,19 @@
 
 import { useState } from "react";
 import { SectionHeading } from "@/components/features/Features";
+import { Screenshot } from "@/components/ui/Screenshot";
 
-const tabs = ["Array", "Stack", "Binary Tree", "Graph"] as const;
-type Tab = (typeof tabs)[number];
+const tabs = [
+  { label: "Array", slug: "array" },
+  { label: "Stack", slug: "stack" },
+  { label: "Binary Tree", slug: "tree" },
+  { label: "Graph", slug: "graph" },
+] as const;
+type Tab = (typeof tabs)[number]["label"];
 
 export default function Demo() {
   const [tab, setTab] = useState<Tab>("Array");
+  const active = tabs.find((t) => t.label === tab)!;
 
   return (
     <section id="demo" className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
@@ -20,31 +27,33 @@ export default function Demo() {
       <div className="mt-10 flex flex-wrap justify-center gap-2">
         {tabs.map((t) => (
           <button
-            key={t}
-            onClick={() => setTab(t)}
+            key={t.slug}
+            onClick={() => setTab(t.label)}
             className={`rounded-full px-4 py-1.5 text-[13px] font-medium transition-colors ${
-              tab === t
+              tab === t.label
                 ? "bg-sky-500 text-white"
                 : "border border-white/10 bg-white/[0.03] text-zinc-400 hover:text-zinc-100"
             }`}
           >
-            {t}
+            {t.label}
           </button>
         ))}
       </div>
 
-      <div className="mt-8 overflow-hidden rounded-xl border border-white/10 bg-[#0a0a0c]">
-        <div className="flex items-center gap-2 border-b border-white/[0.06] bg-[#1b1d22] px-3 py-2">
-          <span className="text-[11px] uppercase tracking-wider text-zinc-500">
-            Visualizer — {tab}
-          </span>
-        </div>
-        <div className="grid min-h-[320px] place-items-center p-8 [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:20px_20px]">
-          {tab === "Array" && <ArrayView />}
-          {tab === "Stack" && <StackView />}
-          {tab === "Binary Tree" && <TreeView />}
-          {tab === "Graph" && <GraphView />}
-        </div>
+      {/* Drop /public/screenshots/{array,stack,tree,graph}.png to replace mocks. */}
+      <div className="mx-auto mt-8 max-w-4xl">
+        <Screenshot
+          src={`/screenshots/${active.slug}.png`}
+          alt={`AlgoLens visualizing a ${tab}`}
+          title={`Visualizer — ${tab}`}
+        >
+          <div className="grid h-full place-items-center [background-image:radial-gradient(rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:20px_20px]">
+            {tab === "Array" && <ArrayView />}
+            {tab === "Stack" && <StackView />}
+            {tab === "Binary Tree" && <TreeView />}
+            {tab === "Graph" && <GraphView />}
+          </div>
+        </Screenshot>
       </div>
     </section>
   );

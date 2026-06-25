@@ -16,9 +16,9 @@ const cols = [
     title: "Resources",
     links: [
       { label: "GitHub", href: site.github, external: true },
-      { label: "Releases", href: site.download, external: true },
-      { label: "Privacy", href: "/privacy" },
+      { label: "Research", href: "/research" },
       { label: "Participate", href: "/participate" },
+      { label: "Privacy", href: "/privacy" },
     ],
   },
 ];

@@ -7,9 +7,18 @@ export const site = {
   // TODO: replace with your real URLs before launch.
   github: "https://github.com/Siddhesh-Dupare/algolens",
   download: "https://github.com/Siddhesh-Dupare/algolens/releases",
-  studyForm: "https://forms.gle/REPLACE_WITH_YOUR_FORM",
   paper: "#",
   email: "siddheshdupare92@gmail.com",
+} as const;
+
+// The study's Google Forms, in the order participants complete them.
+export const forms = {
+  consent: "https://forms.gle/snYzS3x1XmfgYv9r8",
+  demographics: "https://forms.gle/o6Q2mFs1pTSAwB5X6",
+  preTest: "https://forms.gle/XM8ZzC9yrKu2eEX69",
+  postTest: "https://forms.gle/nVrrUPoKdswQPoUW9",
+  sus: "https://forms.gle/vFntdNLLVoNDUdxu9",
+  nasaTlx: "https://forms.gle/2R2TFrJVe8QcJSaA9",
 } as const;
 
 export const nav = [
