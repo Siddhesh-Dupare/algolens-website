@@ -1,68 +1,54 @@
 import {
-  GitBranch,
-  PlayCircle,
   Boxes,
-  MemoryStick,
-  FileCode2,
-  ChartColumn,
+  StepForward,
+  Layers,
+  Code2,
+  Cpu,
+  TerminalSquare,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-type FeatureCardProps = {
-  firstTitle: string;
-  secondTitle: string;
+export type Feature = {
+  title: string;
   description: string;
-  symbol: LucideIcon;
-  pageNumber: string;
+  icon: LucideIcon;
 };
 
-export const features: FeatureCardProps[] = [
+export const features: Feature[] = [
   {
-    firstTitle: "Algorithm",
-    secondTitle: "Visualization",
+    title: "Every data structure",
     description:
-      "Transform algorithms into interactive visual representations to understand every operation step by step.",
-    symbol: GitBranch,
-    pageNumber: "01/06",
+      "Arrays, strings, stacks, queues, linked lists, binary trees, graphs and hash maps — each with a purpose-built, animated view.",
+    icon: Boxes,
   },
   {
-    firstTitle: "Execution",
-    secondTitle: "Tracing",
+    title: "Step-by-step debugging",
     description:
-      "Follow your code line by line and observe how variables and control flow change during execution.",
-    symbol: PlayCircle,
-    pageNumber: "02/06",
+      "Run or debug your real code and watch it execute line by line, with pointers, highlights and the current line tracked.",
+    icon: StepForward,
   },
   {
-    firstTitle: "Data Structure",
-    secondTitle: "Explorer",
+    title: "Scope-aware picture-in-picture",
     description:
-      "Visualize arrays, linked lists, trees, graphs, and other data structures as they evolve in real time.",
-    symbol: Boxes,
-    pageNumber: "03/06",
+      "Enter a function and its structures stay visible. Other structures park into thumbnails and pop back when they change.",
+    icon: Layers,
   },
   {
-    firstTitle: "Memory",
-    secondTitle: "Visualization",
+    title: "Multi-language",
     description:
-      "Inspect variables, memory states, and object lifecycles to gain a deeper understanding of program behavior.",
-    symbol: MemoryStick,
-    pageNumber: "04/06",
+      "Write in Python, JavaScript, C++ or Java. AlgoLens traces real execution — not a hard-coded animation.",
+    icon: Code2,
   },
   {
-    firstTitle: "C++ Code",
-    secondTitle: "Analysis",
+    title: "Native performance",
     description:
-      "Leverage LibClang-powered analysis to parse code and uncover its underlying structure and relationships.",
-    symbol: FileCode2,
-    pageNumber: "05/06",
+      "A native C++/OpenGL renderer draws smooth, GPU-accelerated visuals with playback, seek and adjustable speed.",
+    icon: Cpu,
   },
   {
-    firstTitle: "Performance",
-    secondTitle: "Metrics",
+    title: "Editor + terminal built in",
     description:
-      "Analyze execution time, complexity, and performance insights to optimize your algorithms effectively.",
-    symbol: ChartColumn,
-    pageNumber: "06/06",
+      "A full code editor with syntax highlighting and an integrated terminal (PowerShell or Git Bash) — all in one window.",
+    icon: TerminalSquare,
   },
 ];

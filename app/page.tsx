@@ -1,23 +1,25 @@
 import Header from "@/components/header/Header";
 import Hero from "@/components/hero/Hero";
 import Features from "@/components/features/Features";
-import Work from "@/components/work/Work";
+import HowItWorks from "@/components/how/HowItWorks";
+import Demo from "@/components/demo/Demo";
+import Download from "@/components/download/Download";
+import ResearchCta from "@/components/research/ResearchCta";
+import Footer from "@/components/footer/Footer";
 
 export default function Home() {
   return (
-    <main className="relative w-full">
-      <div className="h-screen relative flex flex-col">
-        <Header />
-        <div className="flex-1 flex mb-5 justify-center">
-          <Hero />
-        </div>
-      </div>
-      <div className="h-screen flex">
+    <>
+      <Header />
+      <main className="bg-[#0a0b0d]">
+        <Hero />
         <Features />
-      </div>
-      <div className="h-screen flex">
-        <Work />
-      </div>
-    </main>
+        <HowItWorks />
+        <Demo />
+        <ResearchCta />
+        <Download />
+      </main>
+      <Footer />
+    </>
   );
 }
